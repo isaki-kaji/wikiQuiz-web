@@ -16,7 +16,7 @@ const Navbar = () => {
             address="/ranking"
             Icon={LiaCrownSolid}
           />
-          <UserMenu title="遊び方" address="/rule" Icon={BsBook} />
+          <UserMenu title="遊び方" address="/rules" Icon={BsBook} />
           <UserMenu
             title="お問い合わせ"
             address="/contact"
