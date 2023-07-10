@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Sawarabi_Mincho } from "next/font/google";
+import { Sawarabi_Mincho } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 
 const sawarabi = Sawarabi_Mincho({

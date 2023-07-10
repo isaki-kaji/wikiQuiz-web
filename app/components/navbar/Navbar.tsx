@@ -1,6 +1,6 @@
 "use client";
 
-import UserMenu from "../UserMenu";
+import UserMenu from "./UserMenu";
 import Logo from "./Logo";
 import { LiaCrownSolid } from "react-icons/lia";
 import { BsBook } from "react-icons/bs";
