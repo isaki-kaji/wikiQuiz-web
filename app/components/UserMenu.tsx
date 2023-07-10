@@ -12,7 +12,7 @@ type UserMenuProps = {
 const UserMenu: React.FC<UserMenuProps> = ({ title, Icon, address }) => {
   return (
     <Link href={address}>
-      <div className="group flex flex-row gap-1 items-center px-4 py-2 transition hover:border-b-[1px]">
+      <div className="flex flex-row gap-1 items-center px-4 py-1.5 link link-underline link-underline-black">
         <Icon />
         <span>{title}</span>
       </div>

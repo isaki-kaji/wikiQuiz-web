@@ -4,7 +4,7 @@ import UserMenu from "../UserMenu";
 import Logo from "./Logo";
 import { LiaCrownSolid } from "react-icons/lia";
 import { BsBook } from "react-icons/bs";
-
+import { AiOutlineMail } from "react-icons/ai";
 const Navbar = () => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
@@ -17,6 +17,11 @@ const Navbar = () => {
             Icon={LiaCrownSolid}
           />
           <UserMenu title="遊び方" address="/rule" Icon={BsBook} />
+          <UserMenu
+            title="お問い合わせ"
+            address="/contact"
+            Icon={AiOutlineMail}
+          />
         </div>
       </div>
     </div>
