@@ -35,3 +35,12 @@ body,
   background-size: 100% 1px;
   background-position: 0 100%;
 }
+
+.card-box .card {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card-box .card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.24);
+  transform: translate(0, -2px);
+}

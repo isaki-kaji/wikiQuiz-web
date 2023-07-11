@@ -19,9 +19,10 @@ const Logo: React.FC = () => {
   return (
     <IconContext.Provider value={{ color: "#22A699", size: "40px" }}>
       <Link href={"/"}>
-        <div className="hidden sm:flex flex-row items-center group cursor-pointer">
+        <div className="sm:flex sm:flex-row sm:items-center group cursor-pointer">
+          <h1 className="sm:hidden hover:opacity-75 mx-1">Home</h1>
           <BiWorld className="hidden sm:block group-hover:opacity-75" />
-          <h1 className="text-base sm:text-lg md:text-xl font-semibold group-hover:opacity-75">
+          <h1 className="hidden sm:block text-base sm:text-lg md:text-xl font-semibold group-hover:opacity-75">
             これ何のWiki ?
           </h1>
         </div>

@@ -8,7 +8,7 @@ import { AiOutlineMail } from "react-icons/ai";
 const Navbar = () => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
-      <div className="px-2 sm:px-6 py-4 border-b-[1px] flex flex-row justify-end sm:justify-between items-center">
+      <div className="px-2 sm:px-6 py-4 border-b-[1px] flex justify-between items-center">
         <Logo />
         <div className="flex flex-row sm:gap-2">
           <UserMenu
