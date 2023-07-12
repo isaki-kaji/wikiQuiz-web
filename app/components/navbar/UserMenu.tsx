@@ -14,7 +14,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ title, Icon, address }) => {
     <Link href={address}>
       <div className="flex flex-row gap-1 items-center px-4 py-1.5 link link-underline link-underline-black">
         <Icon />
-        <span className="hidden sm:block">{title}</span>
+        <span className="hidden sm:block select-none">{title}</span>
       </div>
     </Link>
   );
