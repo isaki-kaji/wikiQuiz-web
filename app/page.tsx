@@ -7,10 +7,12 @@ export default function Home() {
       <div className="py-4 sm:py-6 flex flex-wrap gap-5 justify-center items-center">
         {categoryList.map((category) => {
           return (
-            <CategoryCard
-              title={category.title}
-              Icon={category.Icon}
-            ></CategoryCard>
+            <div id={category.title}>
+              <CategoryCard
+                title={category.title}
+                Icon={category.Icon}
+              ></CategoryCard>
+            </div>
           );
         })}
       </div>
