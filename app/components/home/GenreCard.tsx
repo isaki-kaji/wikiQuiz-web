@@ -1,5 +1,5 @@
 "use client";
-import { GenreCardProps } from "@/app/genre-list";
+import { GenreCardProps } from "@/app/_genre-list";
 
 const CategoryCard: React.FC<GenreCardProps> = ({ title, Icon }) => {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { genreList } from "./genre-list";
+import { genreList } from "./_genre-list";
 import GenreCard from "./components/home/GenreCard";
 
 export default function Home() {
