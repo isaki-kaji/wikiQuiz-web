@@ -17,7 +17,7 @@ const Logo: React.FC = () => {
 
   const router = useRouter();
   return (
-    <IconContext.Provider value={{ color: "#22A699", size: "40px" }}>
+    <IconContext.Provider value={{ color: "#14b8a6", size: "40px" }}>
       <Link href={"/"}>
         <div className="sm:flex sm:flex-row sm:items-center group cursor-pointer">
           <h1 className="sm:hidden hover:opacity-75 mx-1">Home</h1>
