@@ -1,7 +1,12 @@
 "use client";
-import { GenreCardProps } from "@/app/_genre-list";
 
-const CategoryCard: React.FC<GenreCardProps> = ({ title, Icon }) => {
+import { GenreCard } from "@/app/types";
+
+//引数用の型を定義
+type GenreCardProps = { genre: GenreCard };
+
+const GenreCard = ({ genre }: GenreCardProps) => {
+  const { title, Icon } = genre;
   return (
     <div
       className="border-[1px] rounded-lg cursor-pointer transition duration-300 ease-in-out hover:shadow-lg dark:hover:shadow-black/30"
@@ -18,4 +23,4 @@ const CategoryCard: React.FC<GenreCardProps> = ({ title, Icon }) => {
     </div>
   );
 };
-export default CategoryCard;
+export default GenreCard;

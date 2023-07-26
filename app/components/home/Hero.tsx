@@ -13,11 +13,13 @@ const Hero = () => {
           これ何のWiki?
         </h1>
         <p className="hero__subtitle">あなたの知識を試してみませんか？</p>
-        <CustomButton
-          title="クイズに挑戦"
-          containerStyles="bg-teal-500 text-white rounded-full mt-4 sm:mt-10 mx-auto md:ml-12"
-          handleClick={() => {}}
-        />
+        <a href="#select">
+          <CustomButton
+            title="クイズに挑戦"
+            containerStyles="bg-teal-500 text-white rounded-full mt-4 sm:mt-10 mx-auto md:ml-12"
+            handleClick={() => {}}
+          />
+        </a>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

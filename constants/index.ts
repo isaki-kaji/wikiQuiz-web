@@ -1,17 +1,11 @@
-import { IconType } from "react-icons";
 import { CiBaseball } from "react-icons/ci";
 import { PiSoccerBallFill } from "react-icons/pi";
 import { BsBalloonHeart, BsBalloonHeartFill } from "react-icons/bs";
 import { RiUserVoiceLine, RiUserVoiceFill } from "react-icons/ri";
 import { GiSamuraiHelmet } from "react-icons/gi";
+import { GenreCard } from "@/app/types";
 
-export type GenreCardProps = {
-  title: string;
-  Icon: IconType;
-  categoryList: string[];
-};
-
-export const genreList: Array<GenreCardProps> = [
+export const genreList: Array<GenreCard> = [
   {
     title: "プロ野球",
     Icon: CiBaseball,
