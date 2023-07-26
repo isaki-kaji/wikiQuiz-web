@@ -17,7 +17,6 @@ const Hero = () => {
           <CustomButton
             title="クイズに挑戦"
             containerStyles="bg-teal-500 text-white rounded-full mt-4 sm:mt-10 mx-auto md:ml-12"
-            handleClick={() => {}}
           />
         </a>
       </div>

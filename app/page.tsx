@@ -13,9 +13,15 @@ export default function Home() {
         <h1 className="text-center md:text-2xl lg:text-4xl" id="select">
           ジャンル一覧
         </h1>
-        {genreList.map((genre) => (
-          <GenreCard genre={genre} />
-        ))}
+        <section>
+          <div className="cards__wrapper">
+            {genreList.map((genre) => (
+              <div key={genre.title}>
+                <GenreCard genre={genre} />
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );

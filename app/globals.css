@@ -60,6 +60,10 @@ html {
   @apply relative xl:w-full w-[90%] xl:h-full h-[300px] md:h-[590px] z-0;
 }
 
+.cards__wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 sm:pt-14 pt-6;
+}
+
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),

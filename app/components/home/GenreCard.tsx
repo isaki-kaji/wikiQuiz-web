@@ -9,7 +9,7 @@ const GenreCard = ({ genre }: GenreCardProps) => {
   const { title, Icon } = genre;
   return (
     <div
-      className="border-[1px] rounded-lg cursor-pointer transition duration-300 ease-in-out hover:shadow-lg dark:hover:shadow-black/30"
+      className="flex flex-col p-6 justify-center items-center text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl"
       onClick={() => {}}
     >
       <div className="flex flex-col gap-2 h-full justify-center items-center px-2 py-4 sm:px-6 sm:py-16">
