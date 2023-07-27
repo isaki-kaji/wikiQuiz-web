@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <Hero />
-      <div className="mt-12 padding-x padding-y max-width">
-        <h1 className="text-center md:text-2xl lg:text-4xl" id="select">
+      <div className="mt-12 padding-x padding-y max-width" id="select">
+        <h1 className="text-center md:text-2xl lg:text-4xl select-none">
           ジャンル一覧
         </h1>
         <section>

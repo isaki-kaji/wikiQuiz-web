@@ -27,6 +27,7 @@ const Hero = () => {
             alt="hero"
             fill
             className="object-contain"
+            priority={true}
           />
         </div>
       </div>

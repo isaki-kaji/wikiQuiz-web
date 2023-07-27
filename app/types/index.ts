@@ -8,7 +8,7 @@ export interface CustomButtonProps {
   btnType?: "button" | "submit";
 }
 
-export type GenreCard = {
+export type GenreProps = {
   title: string;
   Icon: IconType;
   categoryList: string[];

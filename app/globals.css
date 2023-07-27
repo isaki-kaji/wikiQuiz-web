@@ -8,6 +8,7 @@ html::-webkit-scrollbar {
 
 html {
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -45,11 +46,11 @@ html {
 }
 
 .hero__title {
-  @apply xl:text-[72px] sm:text-[42px] text-[30px] font-extrabold max-md:mx-auto;
+  @apply xl:text-[72px] sm:text-[42px] text-[30px] font-extrabold max-md:mx-auto select-none;
 }
 
 .hero__subtitle {
-  @apply text-[16px] sm:text-[20px] md:text-[27px] text-black font-light mt-2 sm:mt-5 max-md:text-center;
+  @apply text-[16px] sm:text-[20px] md:text-[27px] text-black font-light mt-2 sm:mt-5 max-md:text-center select-none;
 }
 
 .hero__image-container {
@@ -61,7 +62,11 @@ html {
 }
 
 .cards__wrapper {
-  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 sm:pt-14 pt-6;
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 md:pt-14 pt-6;
+}
+
+.genre__card {
+  @apply flex flex-col p-6 justify-center items-center border hover:shadow-md rounded-3xl cursor-pointer;
 }
 
 .link-underline {
