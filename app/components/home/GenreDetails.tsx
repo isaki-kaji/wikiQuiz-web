@@ -2,7 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { GenreProps } from "@/app/types";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 type GenreDetailsProps = {
   isOpen: boolean;
@@ -11,6 +11,7 @@ type GenreDetailsProps = {
 };
 
 const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
+  const { title, Icon, categoryList } = genre;
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -27,7 +28,7 @@ const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex flex-col h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -37,13 +38,22 @@ const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-lg overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
-                  <AiOutlineClose
-                    color="#22A699"
-                    size={"40px"}
-                    onClick={closeModal}
-                    className="absolute top-4 left-4 z-10 cursor-pointer"
-                  />
+                <Dialog.Panel className="relative w-full max-w-lg h-[80%] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                  <div className="sticky top-1 z-20 flex justify-end">
+                    <AiOutlineCloseCircle
+                      color="#22A699"
+                      size={"60px"}
+                      onClick={closeModal}
+                      className="cursor-pointer"
+                    />
+                  </div>
+                  <div className="h-full">
+                    {categoryList.map((category) => (
+                      <h4 key={category} className="text-lg">
+                        {category}
+                      </h4>
+                    ))}
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
