@@ -37,10 +37,6 @@ html {
   @apply flex justify-between items-center;
 }
 
-.hero {
-  @apply flex md:flex-row flex-col max-md:items-center gap-5 relative z-0 max-w-[1440px] mx-auto;
-}
-
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),

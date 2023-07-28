@@ -1,20 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { BiWorld } from "react-icons/bi";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/app/firebase";
+
 import Link from "next/link";
 
-const Logo: React.FC = () => {
-  //   const getDocument = async () => {
-  //     const docRef = doc(db, "中日ドラゴンズ", "山井大介");
-  //     const docSnap = await getDoc(docRef);
-  //     const getObj = docSnap.data() || {};
-  //     console.log(getObj.title);
-  //   };
-
-  const router = useRouter();
+const Logo = () => {
   return (
     <Link href={"/"}>
       <div className="sm:flex sm:flex-row sm:items-center group cursor-pointer">

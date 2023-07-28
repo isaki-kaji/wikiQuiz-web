@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { GenreProps } from "@/app/types";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import CategoryCard from "./CategoryCard";
 
 type GenreDetailsProps = {
   isOpen: boolean;
@@ -39,7 +40,10 @@ const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="relative w-full max-w-lg h-[80%] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
-                  <div className="sticky top-1 z-20 flex justify-end">
+                  <div className="sticky top-1 z-20 flex flex-between">
+                    <div className="bg-[#22A699] rounded-xl">
+                      <h3 className="text-2xl text-white p-2">{title}</h3>
+                    </div>
                     <AiOutlineCloseCircle
                       color="#22A699"
                       size={"60px"}
@@ -49,9 +53,7 @@ const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
                   </div>
                   <div className="h-full">
                     {categoryList.map((category) => (
-                      <h4 key={category} className="text-lg">
-                        {category}
-                      </h4>
+                      <CategoryCard key={category} category={category} />
                     ))}
                   </div>
                 </Dialog.Panel>
