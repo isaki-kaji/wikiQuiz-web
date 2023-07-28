@@ -29,15 +29,16 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
 
   return (
     <div className="w-[90%] flex flex-col border-b border-slate-200 pb-2 group cursor-pointer">
-      <h4 className="text-base sm:text-lg py-2 group-hover:text-[#F2BE22] select-none">
-        {category}
-      </h4>
-      <div>
+      <h4 className="text-base sm:text-lg py-2 select-none">{category}</h4>
+      <div className="group-hover:hidden">
         <div className="flex flex-between px-2">
           <AiOutlineCrown />
           <p>name: {king.name}</p>
           <p>score: {king.score}</p>
         </div>
+      </div>
+      <div className="hidden group-hover:flex w-full justify-center bg-[#F2BE22] z-20">
+        <h4 className="mx-auto">挑戦する</h4>
       </div>
     </div>
   );
