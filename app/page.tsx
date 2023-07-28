@@ -14,7 +14,7 @@ export default function Home() {
           ジャンル一覧
         </h1>
         <section>
-          <div className="cards__wrapper">
+          <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 md:pt-14 pt-6">
             {genreList.map((genre) => (
               <div key={genre.title}>
                 <GenreCard genre={genre} />

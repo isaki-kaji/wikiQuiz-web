@@ -37,36 +37,8 @@ html {
   @apply flex justify-between items-center;
 }
 
-.custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
-}
-
 .hero {
   @apply flex md:flex-row flex-col max-md:items-center gap-5 relative z-0 max-w-[1440px] mx-auto;
-}
-
-.hero__title {
-  @apply xl:text-[72px] sm:text-[42px] text-[30px] font-extrabold max-md:mx-auto select-none;
-}
-
-.hero__subtitle {
-  @apply text-[16px] sm:text-[20px] md:text-[27px] text-black font-light mt-2 sm:mt-5 max-md:text-center select-none;
-}
-
-.hero__image-container {
-  @apply xl:flex-[1.5] flex justify-center md:justify-end items-end w-[80%] xl:h-screen z-0;
-}
-
-.hero__image {
-  @apply relative xl:w-full w-[90%] xl:h-full h-[300px] md:h-[590px] z-0;
-}
-
-.cards__wrapper {
-  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 md:pt-14 pt-6;
-}
-
-.genre__card {
-  @apply flex flex-col p-6 justify-center items-center border hover:shadow-md rounded-3xl cursor-pointer;
 }
 
 .link-underline {
