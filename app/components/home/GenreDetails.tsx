@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { GenreProps } from "@/app/types";
@@ -6,13 +6,14 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import CategoryCard from "./CategoryCard";
 
 type GenreDetailsProps = {
+  genre: GenreProps;
   isOpen: boolean;
   closeModal: () => void;
-  genre: GenreProps;
 };
 
 const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
-  const { title, Icon, categoryList } = genre;
+  const [isOpenPrepareModal, setIsOpenPrepareModal] = useState(false);
+  const { title, categoryList } = genre;
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
