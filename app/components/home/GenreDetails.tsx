@@ -12,7 +12,6 @@ type GenreDetailsProps = {
 };
 
 const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
-  const [isOpenPrepareModal, setIsOpenPrepareModal] = useState(false);
   const { title, categoryList } = genre;
   return (
     <>

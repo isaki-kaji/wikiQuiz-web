@@ -1,5 +1,5 @@
-import { type } from "os";
-import React from "react";
+import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 type StandbyModalProps = {
   isOpen: boolean;
@@ -7,7 +7,17 @@ type StandbyModalProps = {
 };
 
 const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
-  return <div>StandbyModal</div>;
+  return (
+    <>
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-30" onClose={closeModal}>
+          <Transition.Child as={Fragment}>
+            <Dialog.Panel className="fixed inset-0 bg-white "></Dialog.Panel>
+          </Transition.Child>
+        </Dialog>
+      </Transition>
+    </>
+  );
 };
 
 export default StandbyModal;
