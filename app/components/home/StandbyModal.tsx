@@ -9,17 +9,27 @@ type StandbyModalProps = {
 const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
   return (
     <>
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-30" onClose={closeModal}>
-          <Transition.Child as={Fragment}>
+      <Transition.Root show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-30 overflow-y-auto"
+          onClose={closeModal}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-out duration-200 transform"
+            enterFrom="translate-y-full"
+            enterTo="translate-y-0"
+            leave="transition ease-in duration-200 transform"
+            leaveFrom="translate-y-0"
+            leaveTo="translate-y-full"
+          >
             <div className="fixed inset-0">
-              <Dialog.Panel className="fixed inset-0 bg-white mt-[61px] sm:mt-[73px]">
-                {/* ここにダイアログのコンテンツを記述 */}
-              </Dialog.Panel>
+              <Dialog.Panel className="fixed inset-0 bg-white mt-[61px] sm:mt-[73px]"></Dialog.Panel>
             </div>
           </Transition.Child>
         </Dialog>
-      </Transition>
+      </Transition.Root>
     </>
   );
 };
