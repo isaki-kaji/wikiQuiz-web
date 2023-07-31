@@ -12,7 +12,11 @@ const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-30" onClose={closeModal}>
           <Transition.Child as={Fragment}>
-            <Dialog.Panel className="fixed inset-0 bg-white "></Dialog.Panel>
+            <div className="fixed inset-0">
+              <Dialog.Panel className="fixed inset-0 bg-white mt-[61px] sm:mt-[73px]">
+                {/* ここにダイアログのコンテンツを記述 */}
+              </Dialog.Panel>
+            </div>
           </Transition.Child>
         </Dialog>
       </Transition>
