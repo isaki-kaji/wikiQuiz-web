@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 type StandbyModalProps = {
   isOpen: boolean;
@@ -25,7 +26,13 @@ const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
             leaveTo="translate-y-full"
           >
             <div className="fixed inset-0">
-              <Dialog.Panel className="fixed inset-0 bg-white mt-[61px] sm:mt-[73px]"></Dialog.Panel>
+              <Dialog.Panel className="fixed inset-0 bg-white mt-[61px] sm:mt-[73px] flex-center flex-col">
+                <AiOutlineCloseCircle
+                  color="#22A699"
+                  onClick={closeModal}
+                  className="text-4xl sm:text-6xl cursor-pointer m-2 absolute top-4 right-4"
+                />
+              </Dialog.Panel>
             </div>
           </Transition.Child>
         </Dialog>
