@@ -56,3 +56,11 @@ html {
   background-size: 100% 1px;
   background-position: 0 100%;
 }
+
+.custom-animation .animate-pulse {
+  animation: pulse 2s linear infinite;
+}
+
+.custom-animation:hover .animate-pulse {
+  animation: none;
+}

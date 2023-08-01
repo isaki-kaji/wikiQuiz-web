@@ -50,7 +50,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
           <p className="max-sm:text-xs">score: {king.score}</p>
         </div>
       </div>
-      <div className="hidden group-hover:flex w-full justify-center bg-[#F2BE22] z-20">
+      <div className="hidden group-hover:flex w-full justify-center bg-[#FFBF00] z-20">
         <h4 className="mx-auto max-sm:text-xs">挑戦する</h4>
       </div>
       <StandbyModal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
