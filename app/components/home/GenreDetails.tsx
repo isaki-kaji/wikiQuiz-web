@@ -13,6 +13,7 @@ type GenreDetailsProps = {
 
 const GenreDetails = ({ isOpen, closeModal, genre }: GenreDetailsProps) => {
   const { title, categoryList } = genre;
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>

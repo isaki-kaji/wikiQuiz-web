@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useQuizInfoStore } from "@/app/stores/store";
 
 type StandbyModalProps = {
   isOpen: boolean;
@@ -8,6 +9,7 @@ type StandbyModalProps = {
 };
 
 const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
+  const { category } = useQuizInfoStore();
   return (
     <>
       <Transition.Root show={isOpen} as={Fragment}>
@@ -32,6 +34,7 @@ const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
                   onClick={closeModal}
                   className="text-4xl sm:text-6xl cursor-pointer m-2 absolute top-4 right-4"
                 />
+                <h1>{category}</h1>
               </Dialog.Panel>
             </div>
           </Transition.Child>

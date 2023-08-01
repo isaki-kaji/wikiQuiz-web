@@ -3,6 +3,7 @@
 import { GenreProps } from "@/app/types";
 import { useState } from "react";
 import GenreDetails from "./GenreDetails";
+import { useQuizInfoStore } from "@/app/stores/store";
 
 //引数用の型を定義
 type GenreCardProps = { genre: GenreProps };
@@ -10,10 +11,16 @@ type GenreCardProps = { genre: GenreProps };
 const GenreCard = ({ genre }: GenreCardProps) => {
   const { title, Icon } = genre;
   const [isOpen, setIsOpen] = useState(false);
+  const { setGenre } = useQuizInfoStore();
+
+  const decideGenre = (genre: string) => {
+    setGenre(genre);
+    setIsOpen(true);
+  };
   return (
     <div
       onClick={() => {
-        setIsOpen(true);
+        decideGenre(title);
       }}
       className="flex flex-col p-6 justify-center items-center border hover:shadow-md rounded-3xl cursor-pointer"
     >

@@ -3,6 +3,7 @@ import { AiOutlineCrown } from "react-icons/ai";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import StandbyModal from "./StandbyModal";
+import { useQuizInfoStore } from "@/app/stores/store";
 
 type CategoryCardProps = {
   category: string;
@@ -16,6 +17,7 @@ type King = {
 const CategoryCard = ({ category }: CategoryCardProps) => {
   const [king, setKing] = useState<King>({ name: "", score: 0 });
   const [isOpen, setIsOpen] = useState(false);
+  const { setCategory } = useQuizInfoStore();
 
   const getDocument = async () => {
     const docRef = doc(db, "King", category);
@@ -25,6 +27,11 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
     }
   };
 
+  const decideCategory = (category: string) => {
+    setCategory(category);
+    setIsOpen(true);
+  };
+
   useEffect(() => {
     getDocument();
   }, []);
@@ -32,7 +39,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
   return (
     <div
       className="w-[90%] flex flex-col border-b border-slate-200 py-2 group cursor-pointer"
-      onClick={() => setIsOpen(true)}
+      onClick={() => decideCategory(category)}
     >
       <h4 className="text-sm sm:text-lg py-4 select-none">{category}</h4>
       <div className="group-hover:hidden">
