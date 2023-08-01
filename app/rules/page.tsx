@@ -1,8 +1,7 @@
-const RulesPage: React.FC = () => {
-  return (
-    <div className="pt-[61px] sm:pt-[73px]">
-      <div>pageです</div>
-    </div>
-  );
+import React from "react";
+
+const RulesPage = () => {
+  return <div>RulesPage</div>;
 };
+
 export default RulesPage;
