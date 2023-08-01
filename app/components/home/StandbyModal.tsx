@@ -2,9 +2,18 @@ import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useQuizInfoStore } from "@/app/stores/store";
-import { ANNOTATION, EXCUSE } from "@/constants/const";
+import {
+  ANNOTATION,
+  COMMONS_LINK,
+  EXCUSE_1,
+  EXCUSE_2,
+  EXCUSE_LINK_TEXT,
+} from "@/constants/const";
 import { useRouter } from "next/navigation";
 import CustomButton from "../CustomButton";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/app/firebase";
+import { shuffleTitleList } from "@/utils";
 
 type StandbyModalProps = {
   isOpen: boolean;
@@ -12,8 +21,24 @@ type StandbyModalProps = {
 };
 
 const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
-  const { category } = useQuizInfoStore();
+  const {
+    category,
+    setTitleList,
+    setShuffledTitleList,
+    shuffledTitleList,
+    titleList,
+  } = useQuizInfoStore();
   const router = useRouter();
+
+  const handleStart = async () => {
+    const docRef = doc(db, "List", category);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setTitleList(docSnap.data().list);
+      setShuffledTitleList(shuffleTitleList(docSnap.data().list));
+      router.push("/play");
+    }
+  };
 
   return (
     <>
@@ -43,14 +68,21 @@ const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
                   {category} クイズ
                 </h1>
                 <div className="w-[90%] md:w-[80%] lg:w-[60%] border-2 border-[#22A699]">
-                  <p className="p-4 text-sm md:text-base mx-auto">{EXCUSE}</p>
+                  <p className="p-4 text-sm md:text-base mx-auto">
+                    {EXCUSE_1}
+                    <a href={COMMONS_LINK}>
+                      <span className="underline">{EXCUSE_LINK_TEXT}</span>
+                    </a>
+                    {EXCUSE_2}
+                  </p>
                 </div>
-                <p className="text-xs md:text-sm w-[90%] md:w-[80%] lg:w-[60%] text-center">
-                  {ANNOTATION}
-                </p>
+                <div className="w-[90%] md:w-[80%] lg:w-[60%]">
+                  <p className="text-xs md:text-sm ">{ANNOTATION}</p>
+                </div>
                 <CustomButton
                   title={"スタート"}
                   hasAnime={true}
+                  handleClick={() => handleStart()}
                   containerStyles="text-4xl text-white bg-[#FF7000] rounded-2xl my-12 animate-pulse"
                 />
               </Dialog.Panel>

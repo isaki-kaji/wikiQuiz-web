@@ -1,6 +1,6 @@
 "use client";
 
-import { GenreProps } from "@/app/types";
+import { GenreProps } from "@/types";
 import { useState } from "react";
 import GenreDetails from "./GenreDetails";
 import { useQuizInfoStore } from "@/app/stores/store";

@@ -3,7 +3,7 @@ import { PiSoccerBallFill } from "react-icons/pi";
 import { BsBalloonHeart, BsBalloonHeartFill } from "react-icons/bs";
 import { RiUserVoiceLine, RiUserVoiceFill } from "react-icons/ri";
 import { GiSamuraiHelmet } from "react-icons/gi";
-import { GenreProps } from "@/app/types";
+import { GenreProps } from "@/types";
 
 export const genreList: Array<GenreProps> = [
   {
@@ -37,10 +37,44 @@ export const genreList: Array<GenreProps> = [
       "東北楽天ゴールデンイーグルス(現役)",
     ],
   },
-  { title: "サッカー", Icon: PiSoccerBallFill, categoryList: [] },
-  { title: "女性アイドル", Icon: BsBalloonHeart, categoryList: [] },
-  { title: "男性アイドル", Icon: BsBalloonHeartFill, categoryList: [] },
-  { title: "女性声優", Icon: RiUserVoiceLine, categoryList: [] },
-  { title: "男性声優", Icon: RiUserVoiceFill, categoryList: [] },
-  { title: "歴史", Icon: GiSamuraiHelmet, categoryList: [] },
+  {
+    title: "サッカー",
+    Icon: PiSoccerBallFill,
+    categoryList: [
+      "日本のサッカー選手",
+      "ヨーロッパのサッカー選手",
+      "ヨーロッパのサッカー選手(難)",
+    ],
+  },
+  {
+    title: "女性アイドル",
+    Icon: BsBalloonHeart,
+    categoryList: [
+      "ハロー！プロジェクト(易)",
+      "ハロー！プロジェクト",
+      "乃木坂46",
+      "坂道シリーズ",
+      "AKB48",
+    ],
+  },
+  {
+    title: "男性アイドル",
+    Icon: BsBalloonHeartFill,
+    categoryList: ["ジャニーズ"],
+  },
+  {
+    title: "女性声優",
+    Icon: RiUserVoiceLine,
+    categoryList: ["女性声優", "女性声優(難)"],
+  },
+  {
+    title: "男性声優",
+    Icon: RiUserVoiceFill,
+    categoryList: ["男性声優", "男性声優(難)"],
+  },
+  {
+    title: "歴史",
+    Icon: GiSamuraiHelmet,
+    categoryList: ["戦国時代の人物", "戦国時代の人物(難)"],
+  },
 ];

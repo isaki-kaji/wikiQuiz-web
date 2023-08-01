@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { GenreProps } from "@/app/types";
+import { GenreProps } from "@/types";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import CategoryCard from "./CategoryCard";
 
