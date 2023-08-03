@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Sawarabi_Mincho } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 
 const sawarabi = Sawarabi_Mincho({
   subsets: ["latin"],
@@ -20,9 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={sawarabi.className}>
+      <body className={`relative ${sawarabi.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
