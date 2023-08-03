@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { GenreProps } from "@/types";

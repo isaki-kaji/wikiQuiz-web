@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const pathname = usePathname();
-  return pathname == "/play" ? null : (
+  return pathname === "/play" ? null : (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <nav className="px-2 sm:px-6 py-4 border-b-[1px] flex justify-between items-center">
         <Logo />

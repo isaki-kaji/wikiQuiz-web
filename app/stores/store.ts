@@ -21,3 +21,28 @@ export const useQuizInfoStore = create<QuizInfoStore>((set) => ({
   setTitleList: (titleList) => set({ titleList }),
   setShuffledTitleList: (shuffledTitleList) => set({ shuffledTitleList }),
 }));
+
+type QuizStore = {
+  quizTexts: string[];
+  quizIndex: number;
+  quizTextIndex: number;
+  quizScore: number;
+  setQuizTexts: (quizTexts: string[]) => void;
+  incrementQuizIndex: () => void;
+  incrementQuizTextIndex: () => void;
+  incrementQuizScore: () => void;
+};
+
+export const useQuizStore = create<QuizStore>((set) => ({
+  quizTexts: [],
+  quizIndex: 0,
+  quizTextIndex: 0,
+  quizScore: 0,
+  setQuizTexts: (quizTexts) => set({ quizTexts }),
+  incrementQuizIndex: () =>
+    set((state) => ({ quizIndex: state.quizIndex + 1 })),
+  incrementQuizTextIndex: () =>
+    set((state) => ({ quizTextIndex: state.quizTextIndex + 1 })),
+  incrementQuizScore: () =>
+    set((state) => ({ quizScore: state.quizScore + 1 })),
+}));

@@ -1,16 +1,10 @@
-"use client";
-
-import React from "react";
-import { useQuizInfoStore } from "../stores/store";
+import QuizTextCard from "../components/play/quizTextCard";
 
 const PlayPage = () => {
-  const { shuffledTitleList } = useQuizInfoStore();
   return (
-    <ul>
-      {shuffledTitleList.map((title) => (
-        <li key={title}>{title}</li>
-      ))}
-    </ul>
+    <div className="flex flex-col items-center h-screen justify-start bg-gray-100">
+      <QuizTextCard />
+    </div>
   );
 };
 
