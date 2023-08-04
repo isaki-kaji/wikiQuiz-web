@@ -62,10 +62,11 @@ const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
                 <AiOutlineCloseCircle
                   color="#22A699"
                   onClick={closeModal}
-                  className="text-4xl sm:text-6xl cursor-pointer absolute top-4 right-4"
+                  className="text-2xl sm:text-6xl cursor-pointer absolute top-2 sm:top-4 right-4"
                 />
-                <h1 className="text-xl sm:text-4xl pb-6 select-none">
-                  {category} クイズ
+                <h1 className="text-lg sm:text-4xl sm:pb-6 select-none">
+                  {category}
+                  クイズ
                 </h1>
                 <div className="w-[90%] md:w-[80%] lg:w-[60%] border-2 border-[#22A699]">
                   <p className="p-4 text-sm md:text-base mx-auto">

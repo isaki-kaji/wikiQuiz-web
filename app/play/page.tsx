@@ -1,10 +1,16 @@
-import QuizTextCard from "../components/play/quizTextCard";
+import { Suspense } from "react";
+import AnswerBar from "../components/play/AnswerBar";
+import QuizTextCard from "../components/play/QuizTextCard";
+import Loading from "../Loading";
 
 const PlayPage = () => {
   return (
-    <div className="flex flex-col items-center h-screen justify-start bg-gray-100">
-      <QuizTextCard />
-    </div>
+    <Suspense fallback={<Loading />}>
+      <div className="relative h-screen bg-gray-100">
+        <QuizTextCard />
+        <AnswerBar />
+      </div>
+    </Suspense>
   );
 };
 
