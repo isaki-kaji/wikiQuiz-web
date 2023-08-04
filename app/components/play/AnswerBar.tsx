@@ -1,8 +1,8 @@
 "use client";
 
-import { useQuizInfoStore } from "@/app/stores/store";
+import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
 import { Combobox } from "@headlessui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const AnswerBar = () => {
   const [query, setQuery] = useState("");

@@ -3,7 +3,7 @@
 import { GenreProps } from "@/types";
 import { useState } from "react";
 import GenreDetails from "./GenreDetails";
-import { useQuizInfoStore } from "@/app/stores/store";
+import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
 
 //引数用の型を定義
 type GenreCardProps = { genre: GenreProps };

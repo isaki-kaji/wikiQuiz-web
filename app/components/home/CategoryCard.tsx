@@ -3,7 +3,7 @@ import { AiOutlineCrown } from "react-icons/ai";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import StandbyModal from "./StandbyModal";
-import { useQuizInfoStore } from "@/app/stores/store";
+import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
 
 type CategoryCardProps = {
   category: string;

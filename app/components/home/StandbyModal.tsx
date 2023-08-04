@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useQuizInfoStore } from "@/app/stores/store";
+import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
 import {
   ANNOTATION,
   COMMONS_LINK,
