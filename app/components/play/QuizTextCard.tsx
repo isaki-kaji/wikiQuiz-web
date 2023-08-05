@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuizInfoStore, useQuizStore } from "@/app/stores/quizInfoStore";
+import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
+import { useQuizStore } from "@/app/stores/quizStore";
 import { useEffect } from "react";
 
 const quizTextCard = () => {
