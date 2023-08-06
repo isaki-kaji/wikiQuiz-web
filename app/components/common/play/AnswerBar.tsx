@@ -14,7 +14,7 @@ const AnswerBar = () => {
     .slice(0, 3);
 
   return (
-    <div className="absolute bottom-[8rem] sm:bottom-[9rem] left-1/2 transform -translate-x-1/2">
+    <div className="absolute bottom-[8rem] sm:bottom-[9rem] left-1/2 transform -translate-x-1/2 z-10">
       <div className="relative">
         <h3 className="text-center">あなたの解答</h3>
         <Combobox value={selectedAnswer} onChange={setSelectedAnswer}>
