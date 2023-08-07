@@ -14,7 +14,7 @@ const AnswerBar = () => {
     .slice(0, 3);
 
   return (
-    <div className="absolute bottom-[8rem] sm:bottom-[9rem] left-1/2 transform -translate-x-1/2 z-10">
+    <div className="flex items-end">
       <div className="relative">
         <h3 className="text-center">あなたの解答</h3>
         <Combobox value={selectedAnswer} onChange={setSelectedAnswer}>
@@ -36,6 +36,12 @@ const AnswerBar = () => {
                 ))}
           </Combobox.Options>
         </Combobox>
+      </div>
+      <div
+        className="flex-center h-[60px] w-[100px] bg-[#540375] hover:opacity-70 cursor-pointer"
+        onClick={() => {}}
+      >
+        <div className=" text-white">{query === "" ? "パス" : " 答"}</div>
       </div>
     </div>
   );
