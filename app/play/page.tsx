@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import AnswerBar from "../components/common/play/AnswerBar";
-import QuizTextCard from "../components/common/play/QuizTextCard";
+
+import QuizTextCard from "../components/play/QuizTextCard";
 import Loading from "../Loading";
+import AnswerBar from "../components/play/AnswerBar";
 
 const PlayPage = () => {
   return (

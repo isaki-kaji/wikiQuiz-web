@@ -10,7 +10,7 @@ import {
   EXCUSE_LINK_TEXT,
 } from "@/constants/const";
 import { useRouter } from "next/navigation";
-import CustomButton from "../CustomButton";
+import CustomButton from "../common/CustomButton";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import { shuffleTitleList } from "@/utils";
