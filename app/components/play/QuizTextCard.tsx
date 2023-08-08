@@ -19,9 +19,10 @@ const QuizTextCard = () => {
   } = useQuizStore();
 
   useEffect(() => {
+    const resultCategory = category.replace(/\(.+/, "");
     (async () => {
       // 即時関数として非同期関数を実行
-      const docRef = doc(db, category, shuffledTitleList[quizIndex]);
+      const docRef = doc(db, resultCategory, shuffledTitleList[quizIndex]);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setQuizTexts(shuffleList(docSnap.data().text));
@@ -42,7 +43,12 @@ const QuizTextCard = () => {
           {quizTexts[quizTextIndex]}
         </p>
       </div>
-      <div className="absolute bottom-4 right-4">
+      <div className="absolute bottom-4 right-4 flex-center flex-col">
+        <p
+          className={`text-sm ${
+            quizTextIndex === 9 ? "text-gray-300" : "text-[#22A669]"
+          }`}
+        >{`${(quizTextIndex + 1).toString()}/10`}</p>
         <CustomButton
           title={"→"}
           containerStyles={`rounded-full text-white  hover:opacity-70 z-20 ${
