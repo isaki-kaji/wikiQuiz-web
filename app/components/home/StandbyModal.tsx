@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import CustomButton from "../common/CustomButton";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
-import { shuffleTitleList } from "@/utils";
+import { shuffleList } from "@/utils";
 
 type StandbyModalProps = {
   isOpen: boolean;
@@ -35,7 +35,7 @@ const StandbyModal = ({ isOpen, closeModal }: StandbyModalProps) => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setTitleList(docSnap.data().list);
-      setShuffledTitleList(shuffleTitleList(docSnap.data().list));
+      setShuffledTitleList(shuffleList(docSnap.data().list));
       router.push("/play");
     }
   };

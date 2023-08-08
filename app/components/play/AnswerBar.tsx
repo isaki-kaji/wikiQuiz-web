@@ -14,7 +14,7 @@ const AnswerBar = () => {
     .slice(0, 3);
 
   return (
-    <div className="absolute bottom-[8rem] sm:bottom-[10rem] left-1/2 transform -translate-x-1/2 z-10">
+    <div className="absolute bottom-[6rem] sm:bottom-[12rem] left-1/2 transform -translate-x-1/2 z-10">
       <div className="flex items-end">
         <div className="relative">
           <h3 className="text-center">あなたの解答</h3>
@@ -30,7 +30,7 @@ const AnswerBar = () => {
                     <Combobox.Option
                       key={answer}
                       value={answer}
-                      className="cursor-pointer p-2 border-x border-b border-[#22A699] w-[250px]"
+                      className="cursor-pointer p-2 border-x border-b border-[#22A699] w-[250px] bg-white"
                     >
                       {answer}
                     </Combobox.Option>

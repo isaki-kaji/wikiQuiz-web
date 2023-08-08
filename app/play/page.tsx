@@ -2,7 +2,6 @@ import { Suspense } from "react";
 
 import QuizTextCard from "../components/play/QuizTextCard";
 import Loading from "../Loading";
-import InputInterface from "../components/play/InputInterface";
 import AnswerBar from "../components/play/AnswerBar";
 
 const PlayPage = () => {
