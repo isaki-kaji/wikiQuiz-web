@@ -7,6 +7,7 @@ type QuizStore = {
   setQuizTexts: (quizTexts: string[]) => void;
   incrementQuizIndex: () => void;
   incrementQuizTextIndex: () => void;
+  resetQuiz: () => void;
 };
 
 export const useQuizStore = create<QuizStore>((set) => ({
@@ -18,4 +19,11 @@ export const useQuizStore = create<QuizStore>((set) => ({
     set((state) => ({ quizIndex: state.quizIndex + 1 })),
   incrementQuizTextIndex: () =>
     set((state) => ({ quizTextIndex: state.quizTextIndex + 1 })),
+  resetQuiz: () => set(initialState),
 }));
+
+const initialState = {
+  quizTexts: [],
+  quizIndex: 0,
+  quizTextIndex: 0,
+};

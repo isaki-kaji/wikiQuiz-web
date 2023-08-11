@@ -9,6 +9,7 @@ type QuizInfoStore = {
   setCategory: (category: string) => void;
   setTitleList: (titleList: string[]) => void;
   setShuffledTitleList: (shuffledTitleList: string[]) => void;
+  resetQuizInfo: () => void;
 };
 
 export const useQuizInfoStore = create<QuizInfoStore>((set) => ({
@@ -20,4 +21,12 @@ export const useQuizInfoStore = create<QuizInfoStore>((set) => ({
   setCategory: (category) => set({ category }),
   setTitleList: (titleList) => set({ titleList }),
   setShuffledTitleList: (shuffledTitleList) => set({ shuffledTitleList }),
+  resetQuizInfo: () => set(initialState),
 }));
+
+const initialState = {
+  genre: "",
+  category: "",
+  titleList: [],
+  shuffledTitleList: [],
+};
