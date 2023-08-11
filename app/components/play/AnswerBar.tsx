@@ -1,13 +1,31 @@
 "use client";
 
+import { db } from "@/app/firebase";
 import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
+import { useQuizStore } from "@/app/stores/quizStore";
+import { shuffleList } from "@/utils";
 import { Combobox } from "@headlessui/react";
+import { doc, getDoc, increment } from "firebase/firestore";
 import { useState } from "react";
 
 const AnswerBar = () => {
   const [query, setQuery] = useState("");
   const [selectedAnswer, setSelectedAnswer] = useState("");
-  const { titleList } = useQuizInfoStore();
+  const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
+    useQuizStore();
+  const { titleList, category, shuffledTitleList } = useQuizInfoStore();
+  const resultCategory =
+    category === "プロ野球総合(現役)" ? category : category.replace(/\(.+/, "");
+
+  const getQuizTexts = async () => {
+    incrementQuizIndex();
+    const docRef = doc(db, resultCategory, shuffledTitleList[quizIndex]);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setQuizTexts(shuffleList(docSnap.data().text));
+      resetQuizTextIndex();
+    }
+  };
 
   const filteredAnswers = titleList
     .filter((title) => title.toLowerCase().includes(query.toLowerCase()))
@@ -40,7 +58,7 @@ const AnswerBar = () => {
         </div>
         <div
           className="flex-center h-[60px] w-[100px] bg-[#540375] hover:opacity-70 cursor-pointer"
-          onClick={() => {}}
+          onClick={() => getQuizTexts()}
         >
           <div className=" text-white">{query === "" ? "パス" : " 答"}</div>
         </div>
