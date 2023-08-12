@@ -73,7 +73,7 @@ const QuizTextCard = () => {
     >
       <div className="absolute top-10 md:top-20 left-1/2 transform -translate-x-1/2 w-[95%] sm:w-[70%] lg:w-[800px] bg-white h-[60%] shadow-2xl rounded-lg ">
         <div className="relative h-full overflow-auto">
-          <p className="px-6 pt-6 pb-20 sm:p-10 lg:px-16 lg:py-20 text-base sm:text-lg md:text-xl">
+          <p className="px-6 pt-6 pb-20 sm:p-10 lg:px-16 lg:py-20 text-base sm:text-lg md:text-xl select-none">
             {isTextVisible ? quizTexts[quizTextIndex] : ""}
           </p>
         </div>
