@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Sawarabi_Mincho } from "next/font/google";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const sawarabi = Sawarabi_Mincho({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`relative ${sawarabi.className}`}>
         <Navbar />
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>

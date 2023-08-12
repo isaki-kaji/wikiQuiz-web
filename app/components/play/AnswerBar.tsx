@@ -7,7 +7,8 @@ import { useQuizStore } from "@/app/stores/quizStore";
 import { shuffleList } from "@/utils";
 import { Combobox } from "@headlessui/react";
 import { doc, getDoc } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const AnswerBar = () => {
   const [query, setQuery] = useState("");
@@ -15,12 +16,15 @@ const AnswerBar = () => {
   const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
     useQuizStore();
   const { titleList, category, shuffledTitleList } = useQuizInfoStore();
-  const { quizScore, incrementQuizScore } = useQuizResultStore();
+  const { incrementQuizScore } = useQuizResultStore();
   const resultCategory =
     category === "プロ野球総合(現役)" ? category : category.replace(/\(.+/, "");
 
+  useEffect(() => {
+    getQuizTexts();
+  }, [quizIndex]);
+
   const getQuizTexts = async () => {
-    incrementQuizIndex();
     const docRef = doc(db, resultCategory, shuffledTitleList[quizIndex]);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -29,17 +33,25 @@ const AnswerBar = () => {
     }
   };
 
-  const filteredAnswers = titleList
-    .filter((title) => title.toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 3);
-
   const checkAnswer = () => {
     if (selectedAnswer === shuffledTitleList[quizIndex]) {
       incrementQuizScore();
+      toast.success("正解です!", {
+        position: "bottom-center",
+      });
     } else {
+      toast.error(`残念… 正解は「${shuffledTitleList[quizIndex]}」`, {
+        position: "bottom-center",
+      });
     }
-    getQuizTexts();
+    incrementQuizIndex();
+    setSelectedAnswer("");
+    setQuery("");
   };
+
+  const filteredAnswers = titleList
+    .filter((title) => title.toLowerCase().includes(query.toLowerCase()))
+    .slice(0, 3);
 
   return (
     <div className="absolute bottom-[6rem] sm:bottom-[12rem] left-1/2 transform -translate-x-1/2 z-10">
