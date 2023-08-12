@@ -2,10 +2,11 @@
 
 import { db } from "@/app/firebase";
 import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
+import { useQuizResultStore } from "@/app/stores/quizResultStore";
 import { useQuizStore } from "@/app/stores/quizStore";
 import { shuffleList } from "@/utils";
 import { Combobox } from "@headlessui/react";
-import { doc, getDoc, increment } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
 const AnswerBar = () => {
@@ -14,6 +15,7 @@ const AnswerBar = () => {
   const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
     useQuizStore();
   const { titleList, category, shuffledTitleList } = useQuizInfoStore();
+  const { quizScore, incrementQuizScore } = useQuizResultStore();
   const resultCategory =
     category === "プロ野球総合(現役)" ? category : category.replace(/\(.+/, "");
 
@@ -30,6 +32,14 @@ const AnswerBar = () => {
   const filteredAnswers = titleList
     .filter((title) => title.toLowerCase().includes(query.toLowerCase()))
     .slice(0, 3);
+
+  const checkAnswer = () => {
+    if (selectedAnswer === shuffledTitleList[quizIndex]) {
+      incrementQuizScore();
+    } else {
+    }
+    getQuizTexts();
+  };
 
   return (
     <div className="absolute bottom-[6rem] sm:bottom-[12rem] left-1/2 transform -translate-x-1/2 z-10">
@@ -58,7 +68,7 @@ const AnswerBar = () => {
         </div>
         <div
           className="flex-center h-[60px] w-[100px] bg-[#540375] hover:opacity-70 cursor-pointer"
-          onClick={() => getQuizTexts()}
+          onClick={() => checkAnswer()}
         >
           <div className=" text-white">{query === "" ? "パス" : " 答"}</div>
         </div>
