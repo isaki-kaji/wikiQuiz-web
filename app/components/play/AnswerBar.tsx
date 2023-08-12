@@ -2,7 +2,7 @@
 
 import { db } from "@/app/firebase";
 import { useQuizInfoStore } from "@/app/stores/quizInfoStore";
-import { useQuizResultStore } from "@/app/stores/quizResultStore";
+import { GivenQuiz, useQuizResultStore } from "@/app/stores/quizResultStore";
 import { useQuizStore } from "@/app/stores/quizStore";
 import { shuffleList } from "@/utils";
 import { Combobox } from "@headlessui/react";
@@ -16,7 +16,8 @@ const AnswerBar = () => {
   const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
     useQuizStore();
   const { titleList, category, shuffledTitleList } = useQuizInfoStore();
-  const { incrementQuizScore } = useQuizResultStore();
+  const { incrementQuizScore, givenQuizTitles, setGivenQuizTitles } =
+    useQuizResultStore();
   const resultCategory =
     category === "プロ野球総合(現役)" ? category : category.replace(/\(.+/, "");
 
@@ -29,6 +30,11 @@ const AnswerBar = () => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setQuizTexts(shuffleList(docSnap.data().text));
+      const quiz: GivenQuiz = {
+        quizTitle: shuffledTitleList[quizIndex],
+        quizUrl: docSnap.data().url,
+      };
+      setGivenQuizTitles([...givenQuizTitles, quiz]);
       resetQuizTextIndex();
     }
   };

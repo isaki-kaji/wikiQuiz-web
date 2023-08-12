@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type GivenQuiz = {
+export type GivenQuiz = {
   quizTitle: string;
   quizUrl: string;
 };
