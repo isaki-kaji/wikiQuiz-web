@@ -25,7 +25,6 @@ export default function RootLayout({
       <body className={`relative ${sawarabi.className}`}>
         <Navbar />
         {children}
-        <Toaster />
         <Footer />
       </body>
     </html>

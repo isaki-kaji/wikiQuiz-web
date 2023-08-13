@@ -43,7 +43,7 @@ const QuizTextCard = () => {
   useEffect(() => {
     if (mounted.current) {
       setIsShowing(false);
-      setIsTextVisible(false); // テキストを非表示に
+      setIsTextVisible(false);
       setTimeout(() => {
         setIsShowing(true);
         // アニメーションの終了を待ってからテキストを表示
