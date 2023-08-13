@@ -20,7 +20,7 @@ const AnswerBar = () => {
   const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
     useQuizStore();
   const { titleList, category, shuffledTitleList } = useQuizInfoStore();
-  const { incrementQuizScore, givenQuizTitles, setGivenQuizTitles } =
+  const { quizScore, incrementQuizScore, givenQuizTitles, setGivenQuizTitles } =
     useQuizResultStore();
   const resultCategory =
     category === "プロ野球総合(現役)" ? category : category.replace(/\(.+/, "");
@@ -46,8 +46,12 @@ const AnswerBar = () => {
   const checkAnswer = () => {
     if (selectedAnswer === shuffledTitleList[quizIndex]) {
       incrementQuizScore();
-      setIsCorrect(true);
-      setShowResult(true);
+      if (quizScore === 4) {
+        router.push("/result");
+      } else {
+        setIsCorrect(true);
+        setShowResult(true);
+      }
     } else {
       setIsCorrect(false);
       setShowResult(true);
