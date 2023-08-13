@@ -10,12 +10,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import toast from "react-hot-toast";
 
 const AnswerBar = () => {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
     useQuizStore();
   const { titleList, category, shuffledTitleList } = useQuizInfoStore();
@@ -45,14 +46,15 @@ const AnswerBar = () => {
   const checkAnswer = () => {
     if (selectedAnswer === shuffledTitleList[quizIndex]) {
       incrementQuizScore();
-      toast.success("正解です!", {
-        position: "bottom-center",
-      });
+      setIsCorrect(true);
+      setShowResult(true);
     } else {
-      toast.error(`残念… 正解は「${shuffledTitleList[quizIndex]}」`, {
-        position: "bottom-center",
-      });
+      setIsCorrect(false);
+      setShowResult(true);
     }
+    setTimeout(() => {
+      setShowResult(false);
+    }, 3000);
     incrementQuizIndex();
     setSelectedAnswer("");
     setQuery("");
@@ -67,7 +69,22 @@ const AnswerBar = () => {
     .slice(0, 3);
 
   return (
-    <div className="absolute bottom-[6rem] sm:bottom-[12rem] left-1/2 transform -translate-x-1/2 z-10">
+    <div className="absolute bottom-[6rem] sm:bottom-[12rem] left-1/2 transform -translate-x-1/2 z-10 flex flex-col ">
+      {showResult ? (
+        <h3 className="text-center text-[#540375]">
+          {isCorrect ? (
+            "正解です!!"
+          ) : (
+            <span>
+              残念… 正解は
+              <br className="block sm:hidden" />
+              {`「${shuffledTitleList[quizIndex - 1]}」`}
+            </span>
+          )}
+        </h3>
+      ) : (
+        <h3 className="text-center">あなたの解答</h3>
+      )}
       <div className="flex items-end">
         <div className="mr-2">
           <CountdownCircleTimer
@@ -84,7 +101,6 @@ const AnswerBar = () => {
           </CountdownCircleTimer>
         </div>
         <div className="relative">
-          <h3 className="text-center">あなたの解答</h3>
           <Combobox value={selectedAnswer} onChange={setSelectedAnswer}>
             <Combobox.Input
               onChange={(event) => setQuery(event.target.value)}
@@ -97,7 +113,7 @@ const AnswerBar = () => {
                     <Combobox.Option
                       key={answer}
                       value={answer}
-                      className="cursor-pointer p-2 border-x border-b border-[#22A699] w-[250px] bg-white"
+                      className="cursor-pointer p-2 border-x border-b border-[#22A699] w-[180px] sm:w-[250px] bg-white"
                     >
                       {answer}
                     </Combobox.Option>
