@@ -26,6 +26,5 @@ export const useQuizStore = create<QuizStore>((set) => ({
 
 const initialState = {
   quizTexts: [],
-  quizIndex: 0,
   quizTextIndex: 0,
 };

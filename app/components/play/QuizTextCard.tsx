@@ -13,8 +13,8 @@ import { Transition } from "@headlessui/react";
 const QuizTextCard = () => {
   const [isShowing, setIsShowing] = useState(true);
   const [isTextVisible, setIsTextVisible] = useState(true);
-
   const { shuffledTitleList, category } = useQuizInfoStore();
+
   const {
     quizTexts,
     setQuizTexts,
@@ -88,7 +88,7 @@ const QuizTextCard = () => {
             containerStyles={`rounded-full text-white  hover:opacity-70 z-20 ${
               quizTextIndex === 9
                 ? "bg-gray-300 cursor-not-allowed"
-                : "bg-[#22A669]"
+                : "bg-[#22A699]"
             }`}
             handleClick={() => {
               showNextText();

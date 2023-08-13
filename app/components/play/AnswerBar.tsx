@@ -8,9 +8,12 @@ import { shuffleList } from "@/utils";
 import { Combobox } from "@headlessui/react";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import toast from "react-hot-toast";
 
 const AnswerBar = () => {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const { quizIndex, setQuizTexts, resetQuizTextIndex, incrementQuizIndex } =
@@ -55,6 +58,10 @@ const AnswerBar = () => {
     setQuery("");
   };
 
+  const handleTimerComplete = () => {
+    router.push("/result");
+  };
+
   const filteredAnswers = titleList
     .filter((title) => title.toLowerCase().includes(query.toLowerCase()))
     .slice(0, 3);
@@ -62,12 +69,26 @@ const AnswerBar = () => {
   return (
     <div className="absolute bottom-[6rem] sm:bottom-[12rem] left-1/2 transform -translate-x-1/2 z-10">
       <div className="flex items-end">
+        <div className="mr-2">
+          <CountdownCircleTimer
+            isPlaying
+            duration={180}
+            colors="#22A699"
+            size={50}
+            strokeWidth={5}
+            onComplete={handleTimerComplete}
+          >
+            {({ remainingTime }) => {
+              return "";
+            }}
+          </CountdownCircleTimer>
+        </div>
         <div className="relative">
           <h3 className="text-center">あなたの解答</h3>
           <Combobox value={selectedAnswer} onChange={setSelectedAnswer}>
             <Combobox.Input
               onChange={(event) => setQuery(event.target.value)}
-              className="border-2 border-[#22A699] w-[250px] h-[60px] text-lg text-center"
+              className="border-2 border-[#22A699] w-[180px] h-[40px] sm:w-[250px] sm:h-[60px] text-lg text-center"
             />
             <Combobox.Options className="absolute mt-1 w-full">
               {query === ""
@@ -85,7 +106,7 @@ const AnswerBar = () => {
           </Combobox>
         </div>
         <div
-          className="flex-center h-[60px] w-[100px] bg-[#540375] hover:opacity-70 cursor-pointer"
+          className="flex-center h-[40px] sm:h-[60px] w-[100px] bg-[#540375] hover:opacity-70 cursor-pointer"
           onClick={() => checkAnswer()}
         >
           <div className=" text-white">{query === "" ? "パス" : " 答"}</div>
